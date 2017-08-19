@@ -1,4 +1,4 @@
-package com.ifindstuff.service;
+package com.ifindstuff.service.impl;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -11,6 +11,7 @@ import com.ifindstuff.model.Role;
 import com.ifindstuff.model.User;
 import com.ifindstuff.repository.RoleRepository;
 import com.ifindstuff.repository.UserRepository;
+import com.ifindstuff.service.UserService;
 
 
 @Service("userService")
