@@ -2,32 +2,47 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
 
-<head>
-	<title th:text="${title}"></title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
+	<head th:replace="layout :: head"></head>
 
 <body>
+	<!-- TOP NAV WITH LOGO -->  
+    <header th:replace="layout :: header"></header>
+    
+    <section>
+         <div id="head">
+            <div class="line">
+               <h1>Mes magasins</h1>
+            </div>
+         </div>
+         <div id="content" class="left-align contact-page">
+            <div class="line">
+               <div class="margin">
+               
+                  <div class="s-12 l-4 l-offset-4">
+                  		<table class="table table-hover table-striped">
+		                    <tr>
+		                        <td>Nom magasin</td>
+		                        <td>Description</td>
+		                        <td>Etat</td>
+							</tr>
+							<tr th:each="store : ${stores}">
+		                        <td th:text="${store.name}"></td>
+		                        <td th:text="${store.description}"></td>
+								<td th:text="${store.active}"></td>
+							</tr>
+						</table>
+                  </div>
+                  
+               </div>
+            </div>
+         </div>
+         
+		</section>
+      
 	
-	<nav class="navbar navbar-inverse">
-	  <div class="container-fluid">
-	    <div class="navbar-header">
-	      <a class="navbar-brand" href="#">I find stuff</a>
-	    </div>
-	    <ul class="nav navbar-nav navbar-left">
-	      <li><a href="/store"><span class="glyphicon glyphicon-user"></span>Store</a></li>
-	    </ul>
-	    <ul class="nav navbar-nav navbar-right">
-	      <li><a href="/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-	      <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-	    </ul>
-	  </div>
-	</nav> 	
-	
-	<a href="/addStore" ></a>
-	
+		<!-- FOOTER -->   
+        <footer th:replace="layout :: footer" ></footer>
+			
 	
 </body>
 </html>

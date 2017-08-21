@@ -114,5 +114,15 @@ public class User {
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
+
+	public List<Store> getStore() {
+		return store;
+	}
+
+	public void setStore(List<Store> store) {
+		this.store = store;
+	}
+	
+	
 	
 }

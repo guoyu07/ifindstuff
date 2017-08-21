@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+	<head th:replace="layout :: head"></head>
+
+<body>
+	<!-- TOP NAV WITH LOGO -->  
+    <header th:replace="layout :: header"></header>
+    
+    <section>
+         <div id="head">
+            <div class="line">
+               <h1>Ajoute ton magasin</h1>
+            </div>
+         </div>
+         <div id="content" class="left-align contact-page">
+            <div class="line">
+               <div class="margin">
+                  <div class="s-12 l-4 l-offset-4">
+                  		<form th:action="@{/addStore}" method="POST" th:object="${store}" class="customform">
+							<h3 style="color : black">Formulaire</h3>
+							
+							<span th:utext="${successMessage}"></span>
+							
+							<br/>
+									<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+										class="validation-message"></label>
+									<input type="text" id="name" name="name"  th:placeholder="Nom" />
+						    
+						    <br/>
+						     
+									<textarea type="text" id="description" name="description"  th:placeholder="Description" rows="3"></textarea> 
+							
+							<br/> 
+								
+							
+									<button name="Submit" value="AddStore" type="Submit" th:text="Valider"></button>
+							
+						</form>
+				
+                  </div>
+               </div>
+            </div>
+         </div>
+         
+		</section>
+      
+	
+		<!-- FOOTER -->   
+        <footer th:replace="layout :: footer" ></footer>
+			
+	
+</body>
+</html>
