@@ -9,6 +9,6 @@ import com.ifindstuff.model.Catalogue;
 
 
 @Repository("catalogueRepository")
-public interface CatalogueRepository extends CrudRepository<Catalogue, Long>{
+public interface CatalogueRepository extends CrudRepository<Catalogue, Integer>{
 	Catalogue findByName(String name);
 }

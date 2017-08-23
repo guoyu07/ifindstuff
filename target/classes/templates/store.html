@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<html  xmlns:th="http://www.thymeleaf.org">
 
 	<head th:replace="layout :: head"></head>
 
@@ -12,7 +11,9 @@
 		
 		<div class="container">
 			<div class="row">
-			<h3>Liste de mes magasins : </h3>
+				<div class="col-md-12"> <h3 class="header-line lead text-primary">Liste de mes magasins : <a href="addStore" class="btn btn-primary pull-right">Ajouter un magasin</a></h3> </div>
+			</div>
+			<div class="row">
 				<div th:each="store : ${stores}" class="col-md-6 col-sm-6" >
                     
 	                    <div class="panel panel-success">
@@ -33,7 +34,6 @@
 									        <th>Nom</th>
 									        <th>Prix</th>
 									        <th>Quantité</th>
-									        <th>Description</th>
 									      </tr>
 									    </thead>
 									    <tbody>
@@ -41,7 +41,7 @@
 									        <td th:text="${produit.name}"></td>
 									        <td th:text="${produit.price}"></td>
 									        <td th:text="${produit.amount}"></td>
-									        <td th:text="${produit.description}"></td>
+									        <td><a th:href="@{${produit.id}} +'/editProduit'">editer</a></td>
 									     </tr>
 									    </tbody>
 									</table>
@@ -62,7 +62,8 @@
                 </div>
 			</div>
 		</div>
-      
-	
+		
+		
+		
 </body>
 </html>

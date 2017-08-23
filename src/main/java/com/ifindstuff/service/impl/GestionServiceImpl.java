@@ -64,4 +64,9 @@ public class GestionServiceImpl implements GestionService {
 			produitRepository.save(produit);
 	}
 
+	@Override
+	public Produit findProduitById(int idProduit) {
+		return produitRepository.findOne(idProduit);
+	}
+
 }

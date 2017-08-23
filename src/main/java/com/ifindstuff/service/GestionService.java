@@ -18,4 +18,5 @@ public interface GestionService {
 //	Produit
 	
 	public void saveProduit(Produit produit);
+	public Produit findProduitById(int idProduit);
 }

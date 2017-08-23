@@ -100,5 +100,30 @@ public class StoreController {
         modelAndView.setViewName("redirect:/store");
         return modelAndView;
 	
-		}
+	}
+	
+	@RequestMapping(value = "{id}/editProduit", method = RequestMethod.GET)
+    private ModelAndView editerProduit(Model model, @PathVariable String id, Principal principal){
+		ModelAndView modelAndView = new ModelAndView();
+        Produit produit = new Produit();
+        modelAndView.setViewName("editProduit");
+        modelAndView.addObject("produitCurrent", gestionService.findProduitById(Integer.parseInt(id)));
+		modelAndView.addObject("produit", produit);
+        return modelAndView;
+	}
+	
+	@RequestMapping(value = "{id}/editProduit", method = RequestMethod.POST)
+    private ModelAndView updateProduit(Model model, @PathVariable String id, @ModelAttribute @Valid Produit produit, Errors errors, Principal principal){
+		ModelAndView modelAndView = new ModelAndView();
+        Produit produitCurrent = gestionService.findProduitById(Integer.parseInt(id));
+        produitCurrent.setName(produit.getName());
+        produitCurrent.setDescription(produit.getDescription());
+        produitCurrent.setPrice(produit.getPrice());
+        produitCurrent.setAmount(produit.getAmount());
+        gestionService.saveProduit(produitCurrent);
+        modelAndView.setViewName("redirect:/store");
+        return modelAndView;
+	}
+	
+	
 }

@@ -67,8 +67,8 @@ body {
     background-color:#eeeeee;
 }
 .navbar-inverse {
-background-color: #FFF;
-border-color: rgba(155, 153, 153, 0.23);
+	background-color: #FFF;
+	border-color: rgba(155, 153, 153, 0.23);
 
 }
 
@@ -209,13 +209,18 @@ height: 60px;
     padding:25px 50px 25px 50px;
     color:#000;
     font-size:13px;
-      background-color: #f7f7f7;
-      text-align:right;
-       border-top:5px solid #9170E4;
+    background-color: #f7f7f7;
+    text-align:right;
+    border-top:5px solid #9170E4;
+    bottom : 0;
 
 }
 
-    .footer-section a, .footer-section a:hover {
-        color:#000;
-    }
+ .footer-section a, .footer-section a:hover {
+     color:#000;
+ }
 
+.title-header
+{
+	color : #9170E4;
+}

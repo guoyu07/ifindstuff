@@ -9,6 +9,6 @@ import com.ifindstuff.model.Categorie;
 
 
 @Repository("categorieRepository")
-public interface CategorieRepository extends CrudRepository<Categorie, Long>{
+public interface CategorieRepository extends CrudRepository<Categorie, Integer>{
 	Categorie findByName(String name);
 }

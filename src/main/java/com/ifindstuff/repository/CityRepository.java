@@ -9,6 +9,6 @@ import com.ifindstuff.model.City;
 
 
 @Repository("cityRepository")
-public interface CityRepository extends CrudRepository<City, Long>{
+public interface CityRepository extends CrudRepository<City, Integer>{
 	City findByName(String name);
 }

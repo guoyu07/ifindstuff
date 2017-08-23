@@ -9,6 +9,60 @@
       <!-- TOP NAV WITH LOGO -->  
       <header th:replace="layout :: header"></header>
       
-      
+      <!-- MENU SECTION END-->
+	    <div class="content-wrapper">
+	         <div class="container">
+	             
+	             <div class="row">
+	            
+	                 <div class="col-md-3 col-sm-3 col-xs-6">
+	                      <div class="alert alert-info back-widget-set text-center">
+	                            <i class="fa fa-history fa-5x"></i>
+	                            <h3>500+&nbsp; <i class="fa fa-dollar"></i></h3>
+	                           Amount Pending For Approval
+	                        </div>
+	                    </div>
+		              <div class="col-md-3 col-sm-3 col-xs-6">
+		                      <div class="alert alert-success back-widget-set text-center">
+		                            <i class="fa fa-bars fa-5x"></i>
+		                            <h3>300+ Tasks</h3>
+		                            Pending For New Events
+		                        </div>
+		                    </div>
+		               <div class="col-md-3 col-sm-3 col-xs-6">
+		                      <div class="alert alert-warning back-widget-set text-center">
+		                            <i class="fa fa-recycle fa-5x"></i>
+		                            <h3>56+ Calls</h3>
+		                           To Be Made For New Orders
+		                        </div>
+		                    </div>
+		               <div class="col-md-3 col-sm-3 col-xs-6">
+		                      <div class="alert alert-danger back-widget-set text-center">
+		                            <i class="fa fa-briefcase fa-5x"></i>
+		                            <h3>30+ Issues </h3>
+		                            That Should Be Resolved Now
+		                        </div>
+		                    </div>
+		
+		        	</div>              
+	             <div class="row">
+	
+	              
+	         </div>
+	                 
+	                 
+	      </div>
+             
+      </div>
+   
+		<footer th:replace="layout :: footer"></footer>
+
+		<!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+	    <!-- CORE JQUERY  -->
+	    <script th:src="@{js/jquery-1.10.2.js}"></script>
+	    <!-- BOOTSTRAP SCRIPTS  -->
+	    <script th:src="@{js/bootstrap.js}"></script>
+	      <!-- CUSTOM SCRIPTS  -->
+	    <script th:src="@{js/custom.js}"></script>      
    </body>
 </html>
