@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 
-   <head th:layout="head"> 
+	<head> 
       	<meta charset="utf-8" />
 	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	    <meta name="description" content="" />
@@ -11,16 +12,17 @@
 	        <![endif]-->
 	    <title>FREE RESPONSIVE HORIZONTAL ADMIN</title>
 	    <!-- BOOTSTRAP CORE STYLE  -->
-	    <link th:href="@{css/bootstrap.css}" rel="stylesheet" />
+	    <link th:href="@{../css/bootstrap.css}" rel="stylesheet" />
 	    <!-- FONT AWESOME STYLE  -->
-	    <link th:href="@{css/font-awesome.css}" rel="stylesheet" />
+	    <link th:href="@{../css/font-awesome.css}" rel="stylesheet" />
 	    <!-- CUSTOM STYLE  -->
-	    <link th:href="@{css/style.css}" rel="stylesheet" />
+	    <link th:href="@{../css/style.css}" rel="stylesheet" />
 	    <!-- GOOGLE FONT -->
 	    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
    </head>
-   <body class="size-1140">
-      <!-- TOP NAV WITH LOGO -->
+
+<body>
+	<!-- TOP NAV WITH LOGO -->
         
       <header th:layout="header">
          
@@ -33,7 +35,7 @@
 	                    <span class="icon-bar"></span>
 	                </button>
 	                <a class="navbar-brand" href="index.html">
-				<img th:src="@{img/logoStore.jpg}" height ="75" witdh="75" />
+				<img th:src="@{../img/logoStore.jpg}" />
 	                </a>
 	
 	            </div>
@@ -75,10 +77,54 @@
 	    </section>
     
       </header>
-      
-      
-      
-      
-      
-   </body>
+ 
+		<div class="content-wrapper">
+			<div class="container">
+				
+			    <div class="row">
+				    <div class="col-md-4 col-md-offset-4">
+				    	
+				       <div class="panel panel-success">
+			                <div class="panel-heading">
+			                	Ajouter mes produits
+			                </div>
+			                <div class="panel-body">
+			                
+			                    <form role="form" th:action="@{addProduit}" th:object="${produit}" method="POST">
+			                    
+											<span th:utext="${successMessage}"></span>
+											
+									<br/>
+											<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="validation-message"></label>
+											<input class="form-control" type="text" id="name" name="name"  th:placeholder="Nom" />
+								    
+								    <br/>
+								     
+											<textarea class="form-control" type="text" id="description" name="description"  th:placeholder="Description" rows="3"></textarea> 
+									
+									<br/>
+											<label th:if="${#fields.hasErrors('price')}" th:errors="*{price}" class="validation-message"></label>
+											<input class="form-control" type="text" id="price" name="price"  th:placeholder="Prix" />
+									
+									<br/>
+											<label th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}" class="validation-message"></label>
+											<input class="form-control" type="text" id="amount" name="amount"  th:placeholder="Quantite" />
+									
+									<br/>						
+									
+											<button name="Submit" value="AddProduit" class="btn btn-success" type="Submit" th:text="Ajouter"></button>
+								</form>
+								
+			                </div>
+			                
+		                </div>
+		                
+		           </div>
+		            
+            	</div>
+            </div>
+          </div>
+			
+	
+</body>
 </html>

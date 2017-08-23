@@ -38,11 +38,11 @@
 									
 									<br/>
 											<label th:if="${#fields.hasErrors('latitude')}" th:errors="*{latitude}" class="validation-message"></label>
-											<input class="form-control" type="number" id="latitude" name="latitude"  th:placeholder="Latitude" />
+											<input class="form-control" type="text" id="latitude" name="latitude"  th:placeholder="Latitude" />
 									
 									<br/>
 											<label th:if="${#fields.hasErrors('longitude')}" th:errors="*{longitude}" class="validation-message"></label>
-											<input class="form-control" type="number" id="longitude" name="longitude"  th:placeholder="Longitude" />
+											<input class="form-control" type="text" id="longitude" name="longitude"  th:placeholder="Longitude" />
 									
 									<br/>
 									

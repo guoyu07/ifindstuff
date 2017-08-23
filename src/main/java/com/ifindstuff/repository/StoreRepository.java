@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import com.ifindstuff.model.Store;
 
 @Repository("storeRepository")
-public interface StoreRepository extends CrudRepository<Store, Long>{
+public interface StoreRepository extends CrudRepository<Store, Integer>{
 	Store findByName(String name);
 }

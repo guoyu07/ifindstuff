@@ -15,6 +15,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
+
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
@@ -34,11 +38,15 @@ public class Store {
 	private String description;
 	
 	@Column(name = "latitude")
-	@NotEmpty(message = "*Please provide store latitude")
+	@DecimalMax("100.0")
+	@DecimalMin("-100.0")
+	@NotNull(message ="contrainst no respected")
 	private float latitude;
 	
 	@Column(name = "longitude")
-	@NotEmpty(message = "*Please provide store longitude")
+	@DecimalMax("100.0")
+	@DecimalMin("-100.0")
+	@NotNull(message ="contrainst no respected")
 	private float longitude;
 	
 	@Column(name = "adresse")

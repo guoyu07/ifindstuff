@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import com.ifindstuff.model.Produit;
 
 @Repository("produitRepository")
-public interface ProduitRepository extends CrudRepository<Produit, Long>{
+public interface ProduitRepository extends CrudRepository<Produit, Integer>{
 	Produit findByName(String name);
 }
