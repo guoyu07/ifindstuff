@@ -46,7 +46,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.
 			authorizeRequests()
 				.antMatchers("/","/login","/registration","/index").permitAll()
-				.antMatchers("/store","/addStore","/addProduit").hasAuthority("USER")
+				.antMatchers("/store","/addStore","/addProduit","/profil").hasAuthority("USER")
 				.antMatchers("/admin/**").hasAuthority("ADMIN").anyRequest()
 				.authenticated().and().csrf().disable().formLogin()
 				.loginPage("/login").failureUrl("/login?error=true")
