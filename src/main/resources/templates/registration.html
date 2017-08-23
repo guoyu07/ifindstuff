@@ -7,73 +7,74 @@
 <body>
 	<!-- TOP NAV WITH LOGO -->  
     <header th:replace="layout :: header"></header>
-    
-    <section>
-         <div id="head">
-            <div class="line">
-               <h1>Connecte toi</h1>
-            </div>
-         </div>
-         <div id="content" class="left-align contact-page">
-            <div class="line">
-               <div class="margin">
-                  <div class="s-12 l-4 l-offset-4">
-                  		<form autocomplete="off" action="#" th:action="@{/registration}"
-							th:object="${user}" method="post" class="customform"
-							role="form">
-							
-							<h3 style="color : black">S'enregistrer</h3><br/>
-							
-							<span th:utext="${successMessage}"></span>
-							
-
-									<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
-										class="validation-message"></label>
-										
-									<input type="text" th:field="*{name}" placeholder="Name"
-										class="form-control" />
-										
-							
-							<br/>
-
-									<label	th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
-										class="validation-message"></label>
-										
-									<input type="text" th:field="*{lastName}"
-										placeholder="Last Name" class="form-control" />
-
-							<br/>
-									<label th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
-										class="validation-message"></label>
-										
-									<input type="text" th:field="*{email}" placeholder="Email"
-										class="form-control" /> 
-							
-							<br/>
-									<label th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
-										class="validation-message"></label>
-										
-									<input type="password" th:field="*{password}"
-										placeholder="Password" class="form-control" /> 
-		
-							<br/>
-							
-
-									<button type="submit" class="btn btn-primary btn-block">Register User</button>
-
-							
-							
-						</form>
-                  </div>
-               </div>
-            </div>
-         </div>
-         
-		</section>
       
 	
-		<!-- FOOTER -->   
-        <footer th:replace="layout :: footer" ></footer>
+		<div class="content-wrapper">
+			<div class="container">
+				
+			    <div class="row">
+				    <div class="col-md-4 col-md-offset-4">
+				    
+				       <div class="panel panel-danger">
+			                <div class="panel-heading">
+			                	S'enregistrer
+			                </div>
+			                <div class="panel-body">
+								
+								<form autocomplete="off" action="#" th:action="@{/registration}"
+									th:object="${user}" method="post" role="form"
+									role="form">
+									
+									<span th:utext="${successMessage}"></span>
+									
+		
+											<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+												class="validation-message"></label>
+												
+											<input type="text" th:field="*{name}" placeholder="Name"
+												class="form-control" class="form-control" />
+												
+									
+									<br/>
+		
+											<label	th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
+												class="validation-message"></label>
+												
+											<input type="text" th:field="*{lastName}"
+												placeholder="Last Name" class="form-control" class="form-control" />
+		
+									<br/>
+											<label th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+												class="validation-message"></label>
+												
+											<input type="text" th:field="*{email}" placeholder="Email"
+												class="form-control" class="form-control" /> 
+									
+									<br/>
+											<label th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+												class="validation-message"></label>
+												
+											<input type="password" th:field="*{password}"
+												placeholder="Password" class="form-control" class="form-control" /> 
+				
+									<br/>
+									
+		
+											<button type="submit" class="btn btn-danger">Register User</button>
+		
+									
+									
+								</form>
+								
+			                </div>
+			                
+		                </div>
+		                
+		           </div>
+		            
+            	</div>
+            </div>
+          </div>
 			
 	
 </body>

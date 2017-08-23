@@ -17,14 +17,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ifindstuff.model.Store;
 import com.ifindstuff.model.User;
-import com.ifindstuff.service.StoreService;
+import com.ifindstuff.service.GestionService;
 import com.ifindstuff.service.UserService;
 
 @Controller
 public class StoreController {
 
 	@Autowired
-	StoreService storeService;
+	GestionService gestionService;
 	
 	@Autowired
 	UserService userService;
@@ -52,7 +52,7 @@ public class StoreController {
 	@RequestMapping(value = "/addStore", method = RequestMethod.POST)
 	public ModelAndView createNewStore(@Valid Store store, BindingResult bindingResult, Principal principal) {
 		ModelAndView modelAndView = new ModelAndView();
-		Store storeExist = storeService.findStoreByName(store.getName());
+		Store storeExist = gestionService.findStoreByName(store.getName());
 		if (storeExist != null) {
 			bindingResult
 					.rejectValue("name", "error.store",
@@ -61,7 +61,7 @@ public class StoreController {
 		if (bindingResult.hasErrors()) {
 			modelAndView.setViewName("formStore");
 		} else {
-			storeService.saveStore(store, principal.getName());
+			gestionService.saveStore(store, principal.getName());
 			modelAndView.addObject("successMessage", "Store has been registered successfully");
 			modelAndView.addObject("store", new Store());
 			modelAndView.setViewName("formStore");

@@ -8,41 +8,49 @@
 	<!-- TOP NAV WITH LOGO -->  
     <header th:replace="layout :: header"></header>
     
-    <section>
-         <div id="head">
-            <div class="line">
-               <h1>Mes magasins</h1>
-            </div>
-         </div>
-         <div id="content" class="left-align contact-page">
-            <div class="line">
-               <div class="margin">
-               
-                  <div class="s-12 l-4 l-offset-4">
-                  		<table class="table table-hover table-striped">
-		                    <tr>
-		                        <td>Nom magasin</td>
-		                        <td>Description</td>
-		                        <td>Etat</td>
-							</tr>
-							<tr th:each="store : ${stores}">
-		                        <td th:text="${store.name}"></td>
-		                        <td th:text="${store.description}"></td>
-								<td th:text="${store.active}"></td>
-							</tr>
-						</table>
-                  </div>
-                  
-               </div>
-            </div>
-         </div>
-         
-		</section>
+    
+		
+		<div class="container">
+			<div class="row">
+			<h3>Liste de mes magasins : </h3>
+				<div th:each="store : ${stores}" class="col-md-6 col-sm-6" >
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 th:text="${store.name}"></h3>
+                        </div>
+                        <div class="panel-body">
+                            <ul class="nav nav-pills">
+                                <li class=""><a href="#description-pills" data-toggle="tab">Description</a>
+                                </li>
+                                <li class=""><a href="#produits-pills" data-toggle="tab">Liste produits</a>
+                                </li>
+                                <li class=""><a href="#position-pills" data-toggle="tab">Information position</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div class="tab-pane fade" id="description-pills">
+                                    <p th:text="${store.description}"></p>
+                                    <h4>Numéro téléphone : </h4>
+                                    <p th:text="${store.telephone}"></p>
+                                </div>
+                                <div class="tab-pane fade" id="produits-pills">
+                                    <h4>Profile Tab</h4>
+                                    <p></p>
+                                </div>
+                                <div class="tab-pane fade" id="position-pills">
+                                    Latitude , Longitude : 
+                                    (<p th:text="${store.latitude}"></p>,<p th:text="${store.longitude}"></p>)
+                                    Adresse : 
+                                    <p th:text="${store.adresse}"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
       
-	
-		<!-- FOOTER -->   
-        <footer th:replace="layout :: footer" ></footer>
-			
 	
 </body>
 </html>

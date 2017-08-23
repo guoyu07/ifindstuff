@@ -33,6 +33,22 @@ public class Store {
 	@Column(name = "description")
 	private String description;
 	
+	@Column(name = "latitude")
+	@NotEmpty(message = "*Please provide store latitude")
+	private float latitude;
+	
+	@Column(name = "longitude")
+	@NotEmpty(message = "*Please provide store longitude")
+	private float longitude;
+	
+	@Column(name = "adresse")
+	@NotEmpty(message = "*Please provide store adresse")
+	private String adresse;
+	
+	@Column(name = "telephone")
+	private String telephone;
+	
+	
 	@Column(name = "active")
 	private boolean active = false;
 	
@@ -40,7 +56,36 @@ public class Store {
     @JoinColumn(name = "user_id")
 	private User user;
 	
-
+	@OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
+	private List<Produit> produit;
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "store_city", joinColumns = @JoinColumn(name = "store_id"), inverseJoinColumns = @JoinColumn(name = "city_id"))
+	private Set<City> city;
+	
+	
+	
+	
+	public Store() {
+		super();
+	}
+	
+	
+	public Store(int id, String name, String description, float latitude, float longitude, String adresse,
+			String telephone, boolean active, User user, List<Produit> produit, Set<City> city) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.adresse = adresse;
+		this.telephone = telephone;
+		this.active = active;
+		this.user = user;
+		this.produit = produit;
+		this.city = city;
+	}
 	
 	
 	public int getId() {
@@ -72,6 +117,42 @@ public class Store {
 	}
 	public void setUser(User user) {
 		this.user = user;
+	}
+	public float getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(float latitude) {
+		this.latitude = latitude;
+	}
+	public float getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(float longitude) {
+		this.longitude = longitude;
+	}
+	public String getAdresse() {
+		return adresse;
+	}
+	public void setAdresse(String adresse) {
+		this.adresse = adresse;
+	}
+	public String getTelephone() {
+		return telephone;
+	}
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
+	}
+	public List<Produit> getProduit() {
+		return produit;
+	}
+	public void setProduit(List<Produit> produit) {
+		this.produit = produit;
+	}
+	public Set<City> getVille() {
+		return city;
+	}
+	public void setVille(Set<City> city) {
+		this.city = city;
 	}
 	
 	

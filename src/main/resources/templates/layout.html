@@ -2,131 +2,83 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
    <head th:layout="head"> 
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width" />
-      <title th:text="${title}"></title>
-	  <link rel="stylesheet" th:href="@{../css/responsee.css}" />
-      <link rel="stylesheet" th:href="@{../css/components.css}" >
-      
-
-      <link rel="stylesheet" th:href="@{../owl-carousel/owl.carousel.css}" >
-      <link rel="stylesheet" th:href="@{../owl-carousel/owl.theme.css}" >
-      <!-- CUSTOM STYLE -->  
-      <link rel="stylesheet" th:href="@{../css/template-style.css}" >
-      
-      <script type="text/javascript" th:src="@{../js/jquery-1.8.3.min.js}" ></script>
-      <script type="text/javascript" th:src="@{../js/jquery-ui.min.js}" ></script>    
-      <script type="text/javascript" th:src="@{../js/modernizr.js}" ></script>
-      <script type="text/javascript" th:src="@{../js/responsee.js}" ></script>   
-      <!--[if lt IE 9]>
-	      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-      <![endif]-->
+      	<meta charset="utf-8" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	    <meta name="description" content="" />
+	    <meta name="author" content="" />
+	    <!--[if IE]>
+	        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	        <![endif]-->
+	    <title>FREE RESPONSIVE HORIZONTAL ADMIN</title>
+	    <!-- BOOTSTRAP CORE STYLE  -->
+	    <link th:href="@{css/bootstrap.css}" rel="stylesheet" />
+	    <!-- FONT AWESOME STYLE  -->
+	    <link th:href="@{css/font-awesome.css}" rel="stylesheet" />
+	    <!-- CUSTOM STYLE  -->
+	    <link th:href="@{css/style.css}" rel="stylesheet" />
+	    <!-- GOOGLE FONT -->
+	    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
    </head>
    <body class="size-1140">
-      <!-- TOP NAV WITH LOGO -->  
+      <!-- TOP NAV WITH LOGO -->
+        
       <header th:layout="header">
-         <nav>
-            <div class="line">
-               <div class="top-nav">              
-                  <div class="logo hide-l">
-                     <a href="/"><strong>Artdari</strong></a>
-                  </div>                  
-                  <p class="nav-text">Custom menu text</p>
-                  <div class="top-nav s-12 l-5">
-                     <ul class="right top-ul chevron">
-                        <li><a th:href="index">Home</a>
-                        </li>
-                        <li>
-                           <a th:href="store">Magasin</a>
-                        </li>
-                     </ul>
-                  </div>
-                  <ul class="s-12 l-2">
-                     <li class="logo hide-s hide-m">
-                        <a href="/"><strong>Artdari</strong></a>
-                     </li>
-                  </ul>
-                  <div class="top-nav s-12 l-5">
-                     <ul sec:authorize="!isAuthenticated()"  class="top-ul chevron">
-                        <li>
-                        	<a th:href="login">Se connecter</a>
-                        </li>
-                     </ul>
-                     <ul sec:authorize="isAuthenticated()" class="top-ul chevron">
-                        <li>
-                        	<a th:href="addStore">Ajouter mon magasin</a>
-                        </li>
-                        
-                        <li><a href="/logout">Se déconnecter</a>
-                        </li>
-                     </ul> 
-                  </div>
-               </div>
-            </div>
-         </nav>
+         
+         <div class="navbar navbar-inverse set-radius-zero" >
+	        <div class="container">
+	            <div class="navbar-header">
+	                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                </button>
+	                <a class="navbar-brand" href="index.html">
+	
+	                    <img th:src="@{img/logo.jpg}" height="100" width="100" />
+	                </a>
+	
+	            </div>
+	
+	            <div sec:authorize="isAuthenticated()"  class="right-div">
+	                <a href="/logout" class="btn btn-danger pull-right">Me déconnecter</a>
+	            </div>
+	            
+	            <div sec:authorize="!isAuthenticated()"  class="right-div">
+	                <a th:href="login" class="btn btn-info pull-right">Me connecter</a>
+	            </div>
+	            
+	            <div sec:authorize="!isAuthenticated()"  class="right-div">
+	                <a th:href="registration" class="btn btn-danger pull-right">M'enregistrer</a>
+	            </div>
+	            
+	        </div>
+	    </div>
+	    
+	    <!-- LOGO HEADER END-->
+	    <section class="menu-section">
+	        <div class="container">
+	            <div class="row ">
+	                <div class="col-md-12">
+	                    <div class="navbar-collapse collapse ">
+	                        <ul id="menu-top" class="nav navbar-nav navbar-right">
+	                            
+	                            <li><a th:href="index" class="menu-top-active">Accueil</a></li>
+	                           
+	                            <li><a th:href="store">Magasin</a></li>
+	                            
+	
+	                        </ul>
+	                    </div>
+	                </div>
+	
+	            </div>
+	        </div>
+	    </section>
+    
       </header>
       
       
-      <!-- FOOTER -->   
-      <footer>
-         <div class="content">
-            <div class="line">
-                <div class="margin">
-                    <div class="s-12 l-3">
-                        <h4 style="color : rgb(130, 53, 139);">About Us</h4>
-                        <div>
-	                        <p>
-	                        	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et. 
-	                        	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.
-	                        </p>
-	                        <p><a href="about.html">Read more...</a></p>
-                        </div>
-                    </div>
-                    <div class="s-12 l-3 wow fadeInDown">
-                        <h4 style="color : rgb(130, 53, 139);">Email Updates</h4>
-                        <div >
-                        	<p>Enter your email and you'll be one of the first to get new updates:</p>
-                        	<form role="form" action="assets/subscribe.php" method="post">
-		                    	<div class="form-group">
-		                    		<label class="sr-only" for="subscribe-email">Email address</label>
-		                        	<input type="text" name="email" placeholder="Email..." class="subscribe-email" id="subscribe-email">
-		                        </div>
-		                        <button type="submit" class="btn">Subscribe</button>
-		                    </form>
-		                    <p class="success-message"></p>
-		                    <p class="error-message"></p>
-                        </div>
-                    </div>
-                    <div class="s-12 l-3 wow fadeInUp">
-                        <iframe width="200" height="200" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3324.98607324177!2d-7.6773601203300945!3d33.55373816781311!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x33ba8ed7ad94bd16!2sPharmacie+TAM+%22ST%22!5e0!3m2!1sfr!2sfr!4v1467770294546" frameborder="0" style=" border-radius: 10px; margin-top: 10px;" allowfullscreen></iframe>
-                    </div>
-                    <div class="s-12 l-3 wow fadeInDown">
-                        <h4 style="color : rgb(130, 53, 139);">Contact Us</h4>
-                        <div>
-	                        <p><i class="fa fa-map-marker"></i> Address: Via Principe Amedeo 9, 10100, Torino, TO, Italy</p>
-	                        <p><i class="fa fa-phone"></i> Phone: 0039 333 12 68 347</p>
-	                        <p><i class="fa fa-user"></i> Skype: Andia_Agency</p>
-	                        <p><i class="fa fa-envelope"></i> Email: <a href="">contact@andia.co.uk</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <br>
-        <div class="line">
-            <div class="s-12 l-12 wow fadeIn">
-                <p style="text-align: center;">Copyright 2016 Artdari - All rights reserved.</p>
-            </div>
-            <div class="col-sm-5 wow fadeIn">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-dribbble"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-pinterest"></i></a>
-            </div>
-        </div>
-            </div>
-         </div>
-      </footer>
+      
       
       
    </body>
