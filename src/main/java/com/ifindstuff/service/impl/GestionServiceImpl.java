@@ -13,6 +13,7 @@ import com.ifindstuff.repository.ProduitRepository;
 import com.ifindstuff.repository.StoreRepository;
 import com.ifindstuff.repository.UserRepository;
 import com.ifindstuff.service.GestionService;
+
 import java.util.List;
 import java.util.Set;
 
@@ -29,6 +30,7 @@ public class GestionServiceImpl implements GestionService {
 	private CategorieRepository categorieRepository;
 	
 
+	private static int i = 20;
 //	Store
 	
 	
@@ -82,10 +84,20 @@ public class GestionServiceImpl implements GestionService {
 	
 	@Override
 	public void saveProduit(Produit produit) {
-		
-			produitRepository.save(produit);
+		Produit prodCreated = produit;
+		prodCreated.setId(i);
+		produitRepository.save(prodCreated);
+		i = i + 1;
+			
 	}
 
+
+	@Override
+	public void updateProduit(Produit produit) {
+		produitRepository.save(produit);
+	}
+
+	
 	@Override
 	public Produit findProduitById(int idProduit) {
 		return produitRepository.findOne(idProduit);

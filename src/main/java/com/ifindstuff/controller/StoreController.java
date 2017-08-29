@@ -100,6 +100,7 @@ public class StoreController {
 		Store store;
         store = gestionService.findStoreById(Integer.parseInt(id));
         
+        
         produit.setStore(store);
         Categorie categorie;
         categorie = gestionService.findCategorieByName(categorieName);
@@ -130,10 +131,32 @@ public class StoreController {
         produitCurrent.setDescription(produit.getDescription());
         produitCurrent.setPrice(produit.getPrice());
         produitCurrent.setAmount(produit.getAmount());
-        gestionService.saveProduit(produitCurrent);
+        gestionService.updateProduit(produitCurrent);
         modelAndView.setViewName("redirect:/store");
         return modelAndView;
 	}
 	
+	@RequestMapping(value = "{id}/activeStore", method = RequestMethod.GET)
+    private ModelAndView activerStore(Model model, @PathVariable String id, Principal principal){
+		ModelAndView modelAndView = new ModelAndView();
+		List<Store> storeSearch = gestionService.findStoreByUser(userService.findUserByEmail(principal.getName()));
+		modelAndView.addObject("stores", storeSearch);
+        modelAndView.setViewName("redirect:/store");
+        Store store = gestionService.findStoreById(Integer.parseInt(id));
+        store.setActive(true);
+        gestionService.updateStore(store);
+        return modelAndView;
+	}
 	
+	@RequestMapping(value = "{id}/desactiveStore", method = RequestMethod.GET)
+    private ModelAndView desactiverStore(Model model, @PathVariable String id, Principal principal){
+		ModelAndView modelAndView = new ModelAndView();
+		List<Store> storeSearch = gestionService.findStoreByUser(userService.findUserByEmail(principal.getName()));
+		modelAndView.addObject("stores", storeSearch);
+        modelAndView.setViewName("redirect:/store");
+        Store store = gestionService.findStoreById(Integer.parseInt(id));
+        store.setActive(false);
+        gestionService.updateStore(store);
+        return modelAndView;
+	}
 }

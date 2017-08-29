@@ -178,5 +178,7 @@ public class Store {
 		this.city = city;
 	}
 	
-	
+	public void addProduit(Produit produitUnit) {
+		this.produit.add(produitUnit);
+	}
 }

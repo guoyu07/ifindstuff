@@ -21,10 +21,12 @@ public interface GestionService {
 //	Produit
 	
 	public void saveProduit(Produit produit);
+	void updateProduit(Produit produit);
 	public Produit findProduitById(int idProduit);
 	
 //	Categorie
 	
 	public List<Categorie> findAllCategorie();
 	public Categorie findCategorieByName(String categorieName);
+	
 }
