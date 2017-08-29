@@ -109,7 +109,14 @@
 											<label th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}" class="validation-message"></label>
 											<input class="form-control" type="text" id="amount" name="amount"  th:placeholder="Quantite" />
 									
-									<br/>						
+									<br/>
+									
+											<div class="form-group">
+												<label for="sel1">Catégorie</label>
+												<select class="form-control" id="sel1" name="categorieName" >
+													<option th:each="categorie : ${categories}" th:text="${categorie.name}" th:value="${categorie.name}"></option>
+												</select>
+											</div>						
 									
 											<button name="Submit" value="AddProduit" class="btn btn-success" type="Submit" th:text="Ajouter"></button>
 								</form>

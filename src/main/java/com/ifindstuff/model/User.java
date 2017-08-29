@@ -123,6 +123,13 @@ public class User {
 		this.store = store;
 	}
 	
-	
+	public boolean hasRole(String roleName) {
+		
+		for(Role role : this.roles) {
+			if(role.getRole().equals(roleName))
+				return true;
+		}
+		return false;
+	}
 	
 }

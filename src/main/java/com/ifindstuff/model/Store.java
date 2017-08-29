@@ -65,7 +65,7 @@ public class Store {
 	private User user;
 	
 	@OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
-	private List<Produit> produit;
+	private Set<Produit> produit;
 	
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "store_city", joinColumns = @JoinColumn(name = "store_id"), inverseJoinColumns = @JoinColumn(name = "city_id"))
@@ -80,7 +80,7 @@ public class Store {
 	
 	
 	public Store(int id, String name, String description, float latitude, float longitude, String adresse,
-			String telephone, boolean active, User user, List<Produit> produit, Set<City> city) {
+			String telephone, boolean active, User user, Set<Produit> produit, Set<City> city) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -150,12 +150,27 @@ public class Store {
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
-	public List<Produit> getProduit() {
+	
+	public Set<Produit> getProduit() {
 		return produit;
 	}
-	public void setProduit(List<Produit> produit) {
+
+
+	public void setProduit(Set<Produit> produit) {
 		this.produit = produit;
 	}
+
+
+	public Set<City> getCity() {
+		return city;
+	}
+
+
+	public void setCity(Set<City> city) {
+		this.city = city;
+	}
+
+
 	public Set<City> getVille() {
 		return city;
 	}
