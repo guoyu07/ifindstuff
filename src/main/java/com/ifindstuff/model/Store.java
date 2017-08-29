@@ -21,6 +21,8 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "store")
 public class Store {
@@ -61,6 +63,7 @@ public class Store {
 	private boolean active = false;
 	
 	@ManyToOne
+	@JsonIgnore
     @JoinColumn(name = "user_id")
 	private User user;
 	

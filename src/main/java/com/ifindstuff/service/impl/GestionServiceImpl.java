@@ -14,6 +14,7 @@ import com.ifindstuff.repository.StoreRepository;
 import com.ifindstuff.repository.UserRepository;
 import com.ifindstuff.service.GestionService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -77,6 +78,10 @@ public class GestionServiceImpl implements GestionService {
 		
 	}
 
+	@Override
+	public List<Store> findAllStores() {
+		return (List<Store>) storeRepository.findAll();
+	}
 	
 	
 //	Produit
@@ -115,6 +120,7 @@ public class GestionServiceImpl implements GestionService {
 	public Categorie findCategorieByName(String categorieName) {
 		return categorieRepository.findByName(categorieName);
 	}
+
 
 	
 

@@ -17,6 +17,7 @@ public interface GestionService {
 	public void updateStore(Store store);
 	public void validStore(Store store);
 	public Store findStoreById(int idStore);
+	public List<Store> findAllStores();
 	
 //	Produit
 	
@@ -28,5 +29,6 @@ public interface GestionService {
 	
 	public List<Categorie> findAllCategorie();
 	public Categorie findCategorieByName(String categorieName);
+	
 	
 }
