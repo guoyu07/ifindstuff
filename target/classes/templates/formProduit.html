@@ -116,7 +116,12 @@
 												<select class="form-control" id="sel1" name="categorieName" >
 													<option th:each="categorie : ${categories}" th:text="${categorie.name}" th:value="${categorie.name}"></option>
 												</select>
-											</div>						
+											</div>
+									<br/>
+									
+											<input class="form-control" type="text" id="banner" name="banner"  th:placeholder="UrlImage" /> 
+									
+									<br/>						
 									
 											<button name="Submit" value="AddProduit" class="btn btn-success" type="Submit" th:text="Ajouter"></button>
 								</form>

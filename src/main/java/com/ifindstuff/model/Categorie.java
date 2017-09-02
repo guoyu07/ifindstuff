@@ -18,6 +18,8 @@ import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "categorie")
 public class Categorie {
@@ -35,27 +37,35 @@ public class Categorie {
 	private String description;
 	
 	@ManyToOne
+	@JsonIgnore
     @JoinColumn(name = "catalogue_id")
 	private Catalogue catalogue;
 	
 	@ManyToMany(cascade = CascadeType.ALL)
+	@JsonIgnore
 	@JoinTable(name = "produit_categorie", joinColumns = @JoinColumn(name = "categorie_id"), inverseJoinColumns = @JoinColumn(name = "produit_id"))
 	private Set<Produit> produit;
 
+	@Column(name = "banner")
+	private String banner;
 	
 	
 	
-	public Categorie(int id, String name, String description, Catalogue catalogue, Set<Produit> produit) {
+	public Categorie() {
+		super();
+	}
+
+	
+
+	public Categorie(int id, String name, String description, Catalogue catalogue, Set<Produit> produit,
+			String banner) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.catalogue = catalogue;
 		this.produit = produit;
-	}
-	
-	public Categorie() {
-		super();
+		this.banner = banner;
 	}
 
 
@@ -98,6 +108,18 @@ public class Categorie {
 
 	public void setProduit(Set<Produit> produit) {
 		this.produit = produit;
+	}
+
+
+
+	public String getBanner() {
+		return banner;
+	}
+
+
+
+	public void setBanner(String banner) {
+		this.banner = banner;
 	}
 	
 	

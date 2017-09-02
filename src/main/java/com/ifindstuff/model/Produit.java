@@ -17,6 +17,8 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "produit")
 public class Produit {
@@ -42,6 +44,7 @@ public class Produit {
 	private double amount;
 	
 	@ManyToOne
+	@JsonIgnore
     @JoinColumn(name = "store_id")
 	private Store store;
 	
@@ -49,15 +52,17 @@ public class Produit {
 	@JoinTable(name = "produit_categorie", joinColumns = @JoinColumn(name = "produit_id"), inverseJoinColumns = @JoinColumn(name = "categorie_id"))
 	private Set<Categorie> categorie;
 
-	
+	@Column(name = "banner")
+	private String banner;
 	
 	
 	public Produit() {
 		super();
 	}
 
+	
 	public Produit(int id, String name, String description, float price, double amount, Store store,
-			Set<Categorie> categorie) {
+			Set<Categorie> categorie, String banner) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -66,7 +71,9 @@ public class Produit {
 		this.amount = amount;
 		this.store = store;
 		this.categorie = categorie;
+		this.banner = banner;
 	}
+
 
 	public int getId() {
 		return id;
@@ -122,6 +129,16 @@ public class Produit {
 
 	public void setCategorie(Set<Categorie> categorie) {
 		this.categorie = categorie;
+	}
+
+
+	public String getBanner() {
+		return banner;
+	}
+
+
+	public void setBanner(String banner) {
+		this.banner = banner;
 	}
 	
 	

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ifindstuff.service.GestionService;
+import com.ifindstuff.model.Categorie;
 import com.ifindstuff.model.Store;
 
 @RestController
@@ -19,13 +20,22 @@ public class DataRestController {
 	GestionService gestionService;
 	
 	
-	@RequestMapping(value = "/apiIFindStuff", method = RequestMethod.GET)
+	@RequestMapping(value = "/apiIFindStore", method = RequestMethod.GET)
     public ResponseEntity<List<Store>> listAllStores() {
         List<Store> stores = gestionService.findAllStores();
         if(stores.isEmpty()){
             return new ResponseEntity<List<Store>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
         }
         return new ResponseEntity<List<Store>>(stores, HttpStatus.OK);
+    }
+	
+	@RequestMapping(value = "/apiIFindCategorie", method = RequestMethod.GET)
+    public ResponseEntity<List<Categorie>> listAllCategorie() {
+        List<Categorie> categories = gestionService.findAllCategorie();
+        if(categories.isEmpty()){
+            return new ResponseEntity<List<Categorie>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
+        }
+        return new ResponseEntity<List<Categorie>>(categories, HttpStatus.OK);
     }
 	
 }

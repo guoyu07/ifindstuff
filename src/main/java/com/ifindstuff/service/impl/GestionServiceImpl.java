@@ -32,11 +32,11 @@ public class GestionServiceImpl implements GestionService {
 	
 
 	private static int i = 20;
+
+	
 //	Store
 	
 	
-
-
 	@Override
 	public List<Store> findStoreByUser(User user) {
 		if(user.hasRole("ADMIN"))

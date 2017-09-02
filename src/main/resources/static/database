@@ -1,0 +1,7 @@
+insert into role values (1,"ADMIN");
+insert into role values (2,"USER");
+
+insert into categorie values (1,"http://www.surfguidingpeniche.com/wp-content/uploads/2016/02/Surfstuff-Hipster-Equipment.jpg","Les boutiques tentent de couvrir toutes les possibilités en offrant plusieurs catégories d’équipement.","Equipement de surf",NULL);
+insert into categorie values (2,"http://www.les-instruments-de-musique.fr/images/accueil2.jpg","Cette catégorie regroupe principalement les instruments de musique","Instrument de musique",NULL);
+insert into categorie values (3,"http://www.telegraph.co.uk/content/dam/business/2016/05/18/Patisserie-Valerie_3511781b-xlarge_trans_NvBQzQNjv4BqpJliwavx4coWFCaEkEsb3kvxIt-lGGWCWqwLa_RXJU8.jpg","Le pâtissier est le professionnel des desserts et des sucreries.","Patisserie",NULL);
+insert into categorie values (4,"http://www.frenchweb.fr/wp-content/uploads/2015/04/livre-biblioteque.jpg","Cette catégorie accueille tous les ouvrages à valeur documentaire","Livre",NULL);

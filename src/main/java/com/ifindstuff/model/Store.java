@@ -58,6 +58,8 @@ public class Store {
 	@Column(name = "telephone")
 	private String telephone;
 	
+	@Column(name = "banner")
+	private String banner;
 	
 	@Column(name = "active")
 	private boolean active = false;
@@ -71,8 +73,11 @@ public class Store {
 	private Set<Produit> produit;
 	
 	@ManyToMany(cascade = CascadeType.ALL)
+	@JsonIgnore
 	@JoinTable(name = "store_city", joinColumns = @JoinColumn(name = "store_id"), inverseJoinColumns = @JoinColumn(name = "city_id"))
 	private Set<City> city;
+	
+	
 	
 	
 	
@@ -80,10 +85,10 @@ public class Store {
 	public Store() {
 		super();
 	}
-	
-	
+
+
 	public Store(int id, String name, String description, float latitude, float longitude, String adresse,
-			String telephone, boolean active, User user, Set<Produit> produit, Set<City> city) {
+			String telephone, String banner, boolean active, User user, Set<Produit> produit, Set<City> city) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -92,6 +97,7 @@ public class Store {
 		this.longitude = longitude;
 		this.adresse = adresse;
 		this.telephone = telephone;
+		this.banner = banner;
 		this.active = active;
 		this.user = user;
 		this.produit = produit;
@@ -99,6 +105,12 @@ public class Store {
 	}
 	
 	
+	public String getBanner() {
+		return banner;
+	}
+	public void setBanner(String banner) {
+		this.banner = banner;
+	}
 	public int getId() {
 		return id;
 	}
